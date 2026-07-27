@@ -311,6 +311,45 @@ export default {
     selectLanguage: 'Select Language'
   },
 
+  // Backlog
+  backlog: {
+    title: 'Backlog Management',
+    description: 'Track and resolve inventory shortages',
+    highPriority: 'High Priority',
+    mediumPriority: 'Medium Priority',
+    lowPriority: 'Low Priority',
+    totalItems: 'Total Backlog Items',
+    items: 'Backlog Items',
+    noItems: 'No backlog items - all orders can be fulfilled!'
+  },
+
+  // Reports
+  reports: {
+    title: 'Performance Reports',
+    description: 'View quarterly performance metrics and monthly trends',
+    quarterly: {
+      title: 'Quarterly Performance',
+      quarter: 'Quarter',
+      fulfillmentRate: 'Fulfillment Rate'
+    },
+    monthly: {
+      title: 'Monthly Revenue Trend'
+    },
+    mom: {
+      title: 'Month-over-Month Analysis',
+      month: 'Month',
+      orders: 'Orders',
+      change: 'Change',
+      growthRate: 'Growth Rate'
+    },
+    stats: {
+      totalRevenueYTD: 'Total Revenue (YTD)',
+      avgMonthlyRevenue: 'Avg Monthly Revenue',
+      totalOrdersYTD: 'Total Orders (YTD)',
+      bestQuarter: 'Best Performing Quarter'
+    }
+  },
+
   // Common
   common: {
     loading: 'Loading...',

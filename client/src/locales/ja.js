@@ -311,6 +311,45 @@ export default {
     selectLanguage: '言語を選択'
   },
 
+  // Backlog
+  backlog: {
+    title: 'バックログ管理',
+    description: '在庫不足の追跡と解決',
+    highPriority: '高優先度',
+    mediumPriority: '中優先度',
+    lowPriority: '低優先度',
+    totalItems: '総バックログ品目数',
+    items: 'バックログ品目',
+    noItems: 'バックログ品目なし - すべての注文を履行できます！'
+  },
+
+  // Reports
+  reports: {
+    title: 'パフォーマンスレポート',
+    description: '四半期パフォーマンス指標と月別トレンドを表示',
+    quarterly: {
+      title: '四半期パフォーマンス',
+      quarter: '四半期',
+      fulfillmentRate: '履行率'
+    },
+    monthly: {
+      title: '月別収益トレンド'
+    },
+    mom: {
+      title: '前月比分析',
+      month: '月',
+      orders: '注文数',
+      change: '変化',
+      growthRate: '成長率'
+    },
+    stats: {
+      totalRevenueYTD: '総収益（年初来）',
+      avgMonthlyRevenue: '平均月次収益',
+      totalOrdersYTD: '総注文数（年初来）',
+      bestQuarter: '最高パフォーマンス四半期'
+    }
+  },
+
   // Common
   common: {
     loading: '読み込み中...',
