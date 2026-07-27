@@ -1,0 +1,36 @@
+name: Claude Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review, reopened]
+
+jobs:
+  claude-review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: read
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Run Claude Code Review
+        id: claude-review
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          show_full_output: true
+          prompt: |
+            Please review this pull request and provide feedback on:
+            1. Code quality and best practices
+            2. Potential bugs or issues
+            3. Performance considerations
+            4. Security concerns
+            5. Vue 3 Composition API patterns (for .vue files)
+            6. FastAPI/Python best practices (for .py files)
+            Post your review as inline comments on the PR where relevant.
