@@ -53,12 +53,12 @@
             </svg>
             <span class="nav-label">{{ t('nav.demandForecast') }}</span>
           </router-link>
-          <router-link to="/reports" :class="{ active: $route.path === '/reports' }" :title="sidebarCollapsed ? 'Reports' : ''">
+          <router-link to="/reports" :class="{ active: $route.path === '/reports' }" :title="sidebarCollapsed ? t('nav.reports') : ''">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
               <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
               <path d="M5 7H13M5 10H10M5 13H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
-            <span class="nav-label">Reports</span>
+            <span class="nav-label">{{ t('nav.reports') }}</span>
           </router-link>
         </nav>
       </div>
@@ -425,8 +425,8 @@ body {
   color: #e2e8f0;
 }
 
-/* Dropdowns open upward so they don't get clipped by the bottom of the viewport */
-.sidebar-bottom :deep(.dropdown-menu) {
+/* Dropdowns open upward and stay within the sidebar width */
+.sidebar .sidebar-bottom :deep(.dropdown-menu) {
   top: auto;
   bottom: calc(100% + 0.5rem);
   right: 0;

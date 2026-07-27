@@ -250,10 +250,7 @@ def get_quarterly_reports(warehouse: Optional[str] = None, category: Optional[st
     if warehouse and warehouse != 'all':
         filtered_orders = [o for o in filtered_orders if o.get('warehouse') == warehouse]
     if category and category != 'all':
-        filtered_orders = [o for o in filtered_orders if any(
-            item.get('category', '').lower() == category.lower()
-            for item in o.get('items', [])
-        )]
+        filtered_orders = [o for o in filtered_orders if o.get('category', '').lower() == category.lower()]
 
     # Calculate quarterly statistics from orders
     quarters = {}
@@ -305,10 +302,7 @@ def get_monthly_trends(warehouse: Optional[str] = None, category: Optional[str] 
     if warehouse and warehouse != 'all':
         filtered_orders = [o for o in filtered_orders if o.get('warehouse') == warehouse]
     if category and category != 'all':
-        filtered_orders = [o for o in filtered_orders if any(
-            item.get('category', '').lower() == category.lower()
-            for item in o.get('items', [])
-        )]
+        filtered_orders = [o for o in filtered_orders if o.get('category', '').lower() == category.lower()]
 
     months = {}
 

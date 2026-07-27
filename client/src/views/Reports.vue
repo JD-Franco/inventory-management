@@ -134,7 +134,7 @@ export default {
   name: 'Reports',
   setup() {
     const { t, currentLocale, currentCurrency } = useI18n()
-    const { selectedLocation, selectedCategory, getCurrentFilters } = useFilters()
+    const { selectedPeriod, selectedLocation, selectedCategory, selectedStatus, getCurrentFilters } = useFilters()
 
     const loading = ref(true)
     const error = ref(null)
@@ -232,7 +232,9 @@ export default {
       return (rate > 0 ? '+' : '') + rate.toFixed(1) + '%'
     }
 
-    watch([selectedLocation, selectedCategory], loadData)
+    watch([selectedPeriod, selectedLocation, selectedCategory, selectedStatus], () => {
+      loadData()
+    })
     onMounted(loadData)
 
     return {
@@ -264,11 +266,11 @@ export default {
 }
 
 .card {
-  background: white;
+  background: #1e293b;
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #334155;
 }
 
 .card-header {
@@ -278,7 +280,7 @@ export default {
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #0f172a;
+  color: #f1f5f9;
   margin: 0;
 }
 
@@ -288,21 +290,22 @@ export default {
 }
 
 .reports-table th {
-  background: #f8fafc;
+  background: #263148;
   padding: 0.75rem;
   text-align: left;
   font-weight: 600;
-  color: #64748b;
-  border-bottom: 2px solid #e2e8f0;
+  color: #94a3b8;
+  border-bottom: 2px solid #334155;
 }
 
 .reports-table td {
   padding: 0.75rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #334155;
+  color: #cbd5e1;
 }
 
 .reports-table tr:hover {
-  background: #f8fafc;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .chart-container {
@@ -348,7 +351,7 @@ export default {
 .bar-label {
   margin-top: 1.5rem;
   font-size: 0.75rem;
-  color: #64748b;
+  color: #94a3b8;
   text-align: center;
   transform: rotate(-45deg);
   white-space: nowrap;
@@ -362,23 +365,23 @@ export default {
 }
 
 .stat-card {
-  background: white;
+  background: #1e293b;
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #334155;
   border-left: 4px solid #3b82f6;
 }
 
 .stat-label {
   font-size: 0.875rem;
-  color: #64748b;
+  color: #94a3b8;
   margin-bottom: 0.5rem;
 }
 
 .stat-value {
   font-size: 1.875rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #f1f5f9;
 }
 
 .badge {
@@ -416,12 +419,13 @@ export default {
 .loading {
   text-align: center;
   padding: 3rem;
-  color: #64748b;
+  color: #94a3b8;
 }
 
 .error {
-  background: #fee2e2;
-  color: #991b1b;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #f87171;
   padding: 1rem;
   border-radius: 8px;
   margin: 1rem 0;
